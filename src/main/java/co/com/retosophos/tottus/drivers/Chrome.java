@@ -9,9 +9,9 @@ public class Chrome {
 	private static WebDriver driver;
 	
 	public static Chrome web() {
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/co.com.retosophos.tottus.webdrivers/windows/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "src/test/resources/co.com.retosophos.tottus.webdrivers/windows/chromedriver.exe");		
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--incognito", "--start-maximized", "--disable-infobars");
+		options.addArguments("--incognito", "--start-maximized").setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
 		driver = new ChromeDriver(options);
 		return new Chrome();
 	}

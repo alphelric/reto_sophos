@@ -9,12 +9,13 @@ import static co.com.retosophos.tottus.userinterfaces.MainPage.CART_SHOP;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
 public class CartShop implements Interaction {
 
 	@Override
 	public <T extends Actor> void performAs(T actor) {
-		actor.attemptsTo(Click.on(CART_SHOP));
+		actor.attemptsTo(Click.on(CART_SHOP), WaitUntil.the(SHOP_CART_PRODUCT, isVisible()));
 		actor.should(seeThat(the(SHOP_CART_PRODUCT), isVisible()));
 	}
 	
